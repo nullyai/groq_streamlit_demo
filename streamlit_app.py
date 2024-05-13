@@ -34,9 +34,7 @@ if "selected_model" not in st.session_state:
 
 # Define model details
 models = {
-    "llama2-70b-4096": {"name": "ChatterLlama", "tokens": 4096, "developer": "Meta"},
     "llama3-70b-8192": {"name": "MegaMind", "tokens": 8192, "developer": "Meta"},
-    "mixtral-8x7b-32768": {"name": "CodeCraftsman", "tokens": 32768, "developer": "Mistral"},
 }
 
 # Layout for model selection and max_tokens slider
@@ -47,7 +45,7 @@ with col1:
         "Connect with the perfect AI:",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
-        index=2  # Default to Mixtral
+        index=0  # Default to Mixtral
     )
 
 # Detect model change and clear chat history if model has changed

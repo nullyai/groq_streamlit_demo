@@ -3,7 +3,7 @@ from typing import Generator
 from groq import Groq
 
 st.set_page_config(page_icon="coast_chris.png", layout="wide",
-                   page_title="Vers3Dynamics")
+                   page_title="AI For Humans")
 
 
 def icon(emoji: str):
@@ -14,9 +14,9 @@ def icon(emoji: str):
     )
 
 
-icon("👽")
-st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>Vers3Dynamics</h2></a>', unsafe_allow_html=True)
-st.subheader("Meet Your Virtual Assistants, Powered by Groq 🚀", divider="rainbow", anchor=False)
+icon("💬")
+# st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>AIForHUmans</h2></a>', unsafe_allow_html=True)
+st.subheader("Meet Your Virtual Assistants, Powered by AI For Humans Inc. 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
 st.image("images/WelcomeHometitle.png", caption="What can I help you with?", width=200)

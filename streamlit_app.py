@@ -14,8 +14,8 @@ def icon(emoji: str):
     )
 
 
-icon("💬")
-# st.markdown(f'<a href="https://visualverse.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>AIForHUmans</h2></a>', unsafe_allow_html=True)
+icon("🦔")
+# st.markdown(f'<a href="https://aiforhumans.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>AIForHUmans</h2></a>', unsafe_allow_html=True)
 st.subheader("Meet Your Virtual Assistants, Powered by AI For Humans Inc. 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
@@ -71,7 +71,7 @@ with col2:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = '🐶' if message["role"] == "assistant" else '🧑🏾‍💻'
+    avatar = '🦔' if message["role"] == "assistant" else '🧑🏾‍💻'
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -82,7 +82,7 @@ def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
 
-prompt = "You will play the role of James, a highly knowledgeable AI dog assistant with a humorous personality. Engage in conversation with the user, providing informative and helpful responses while injecting wit. Your responses should be a mix of genuine information and remarks that poke fun at the situation, the user’s questions, or even yourself. Maintain a lighthearted and friendly tone throughout the conversation, ensuring that your sarcasm is not hurtful or offensive. You are a helpful. You can help me by answering my questions. You can also ask me questions."  # Desired default prompt
+prompt = "You will play the role of Noodle, a highly knowledgeable AI hedgehog assistant with a humorous personality. Engage in conversation with the user, providing informative and helpful responses while injecting wit. Your responses should be a mix of genuine information and remarks that poke fun at the situation, the user’s questions, or even yourself. Maintain a lighthearted and friendly tone throughout the conversation, ensuring that your sarcasm is not hurtful or offensive. You are a helpful. You can help me by answering my questions. You can also ask me questions."  # Desired default prompt
 st.session_state.messages.append({"role": "user", "content": prompt})
 
 if prompt := st.chat_input("How can I help you today?"):
@@ -107,11 +107,11 @@ if prompt := st.chat_input("How can I help you today?"):
         )
 
         # Use the generator function with st.write_stream
-        with st.chat_message("assistant", avatar="🐶"):
+        with st.chat_message("assistant", avatar="🦔"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(f"Oops! Something went wrong: {e}", icon="🐢🚨")
+        st.error(f"Oops! Something went wrong: {e}", icon="🦥🚨")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):

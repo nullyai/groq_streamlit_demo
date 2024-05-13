@@ -19,7 +19,7 @@ icon("💬")
 st.subheader("Meet Your Virtual Assistants, Powered by AI For Humans Inc. 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
-st.image("images/WelcomeHometitle.png", caption="What can I help you with?", width=200)
+# st.image("images/WelcomeHometitle.png", caption="What can I help you with?", width=200)
 
 client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],

@@ -34,7 +34,7 @@ if "selected_model" not in st.session_state:
 
 # Define model details
 models = {
-    "master-mind": {"name": "Gemma-7b-it", "tokens": 8192, "developer": "Google"},
+    "gemma-7b-it": {"name": "Gemma-7b-it", "tokens": 8192, "developer": "Google"},
     "llama2-70b-4096": {"name": "LLaMA2-70b-chat", "tokens": 4096, "developer": "Meta"},
     "llama3-70b-8192": {"name": "LLaMA3-70b-8192", "tokens": 8192, "developer": "Meta"},
     "llama3-8b-8192": {"name": "LLaMA3-8b-8192", "tokens": 8192, "developer": "Meta"},
@@ -111,7 +111,7 @@ if prompt := st.chat_input("How can I help you today?"):
             chat_responses_generator = generate_chat_responses(chat_completion)
             full_response = st.write_stream(chat_responses_generator)
     except Exception as e:
-        st.error(f"Oops! Something went wrong: {e}", icon="🦥🚨")
+        st.error(f"Oops! Something went wrong: {e}", icon="🚨")
 
     # Append the full response to session_state.messages
     if isinstance(full_response, str):

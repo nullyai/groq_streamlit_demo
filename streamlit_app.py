@@ -2,7 +2,7 @@ import streamlit as st
 from typing import Generator
 from groq import Groq
 
-st.set_page_config(page_icon="🦔.png", layout="wide",
+st.set_page_config(layout="wide",
                    page_title="AI For Humans")
 
 

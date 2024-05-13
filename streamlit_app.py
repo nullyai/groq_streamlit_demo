@@ -48,7 +48,7 @@ with col1:
         "Connect with the perfect AI:",
         options=list(models.keys()),
         format_func=lambda x: models[x]["name"],
-        index=4  # Default to Mixtral
+        index=3  # Default to Mixtral
     )
 
 # Detect model change and clear chat history if model has changed

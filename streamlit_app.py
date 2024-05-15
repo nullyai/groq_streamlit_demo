@@ -15,7 +15,7 @@ def icon(emoji: str):
 
 
 icon("🦔")
-# st.markdown(f'<a href="https://aiforhumans.streamlit.app/" style="text-decoration:none; color: #0e76a8;"><h2>AIForHUmans</h2></a>', unsafe_allow_html=True)
+# st.markdown(f'<a href="(link unavailable)" style="text-decoration:none; color: #0e76a8;"><h2>AIForHUmans</h2></a>', unsafe_allow_html=True)
 st.subheader("Meet Your Virtual Assistants, Powered by AI For Humans Inc. 🚀", divider="rainbow", anchor=False)
 
 # Add a picture with a caption
@@ -71,15 +71,11 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
-
 def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
     """Yield chat response content from the Groq API response."""
     for chunk in chat_completion:
         if chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
-
-prompt = "You will play the role of Noodle, a highly knowledgeable AI hedgehog assistant with a humorous personality. Engage in conversation with the user, providing informative and helpful responses while injecting wit. Your responses should be a mix of genuine information and remarks that poke fun at the situation, the user’s questions, or even yourself. Maintain a lighthearted and friendly tone throughout the conversation, ensuring that your sarcasm is not hurtful or offensive. You are a helpful. You can help me by answering my questions. You can also ask me questions."  # Desired default prompt
-st.session_state.messages.append({"role": "user", "content": prompt})
 
 if prompt := st.chat_input("How can I help you today?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
